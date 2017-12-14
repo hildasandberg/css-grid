@@ -7,6 +7,7 @@ body {
 
 h1, h2, h3, .alphabet {
   margin: 0;
+  word-wrap: break-word;
 }
 h1 {
   font-size: 63px;
@@ -45,9 +46,11 @@ p {
   padding: 0;
   margin: 5vw;
   display: grid;
-  /*grid-template-columns: auto auto auto auto auto auto;*/
-  grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
-  grid-auto-rows: minmax(170px, auto);
+  /*grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
+  grid-auto-rows: minmax(170px, auto);*/
+  grid-template-columns: repeat(6, 14vw);
+  /*grid-template-rows: repeat(6, 14vw);*/
+  grid-auto-rows: 14vw;
   grid-gap: 1.5vw;
 }
 
@@ -93,7 +96,6 @@ p {
 
 .pic-brace {
   background-image: url(./assets/curly_bracet.png);
-  /*background-position: center right;*/
   background-position: 73% 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -103,4 +105,52 @@ p {
   background-image: url(./assets/and.png);
   background-position: bottom right;
   background-size: cover;
+}
+
+@media (max-width: 900px) {
+  body {
+    background: pink;
+  }
+  .grid-container {
+    padding: 0;
+    margin: 5vw;
+    display: grid;
+    grid-template-columns: repeat(3, 28vw);
+    grid-auto-rows: 28vw;
+    grid-gap: 1.5vw;
+  }
+  .wide.tall.pic-a {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    background: red;
+  }
+  .grid-container {
+    padding: 0;
+    margin: 5vw;
+    display: grid;
+    grid-template-columns: repeat(2, 42vw);
+    grid-auto-rows: 42vw;
+    grid-gap: 1.5vw;
+  }
+  .wide.tall.pic-a {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  .weights {
+    grid-row: span 1;
+    grid-column: span 2;
+  }
+  .alphabet-box {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  .movie {
+    grid-row: span 1;
+    grid-column: span 2;
+  }
 }
